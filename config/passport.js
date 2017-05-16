@@ -25,8 +25,6 @@ passport.use(new FacebookStrategy({
           email: profile.emails[0].value,
           facebookId: profile.id,
           // avatar: profile.photos
-
-
         });
         newUser.save(function(err){
           if(err) return cb(err);

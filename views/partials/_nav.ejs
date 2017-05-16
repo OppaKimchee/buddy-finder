@@ -23,11 +23,14 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if(user) { %>
+        <li><p class="navbar-text">Signed in as <%= user.name %></p><li>
+        <li><a href="/users/profile">Profile</a></li>
         <li><a href="/users/logout">Log Out</a></li>
         <% } else { %>
-        <li><a href="/users/login">Log in</a></li>
+        <a href="/users/login">
+          <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+        </a>
         <%}%>
-        <li><a href="/users/profile">Profile</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

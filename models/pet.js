@@ -9,7 +9,7 @@ const petSchema = new Schema({
   name: String,
   breed: String,
   color: String,
-  age: Number,
+  age: String,
   location: {type: String, required: true},
   description: String,
   picture: String

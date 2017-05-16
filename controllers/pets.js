@@ -40,7 +40,7 @@ function create(req, res) {
 function lost(req, res) {
   const active = 'lost';
   Pet.find({}, function(err, pets) {
-    if (err) return res.redirect('/submit');
+    if (err) return res.redirect('/');
     res.render('lost', {user:req.user, pets:pets, active});
   });
 }
@@ -49,7 +49,7 @@ function lost(req, res) {
 function found(req, res) {
   const active = 'found';
   Pet.find({}, function(err, pets) {
-    if (err) return res.redirect('/submit');
+    if (err) return res.redirect('/');
     res.render('found', {user:req.user, pets:pets, active});
   });
 }
@@ -57,12 +57,15 @@ function found(req, res) {
 function show(req, res) {
   Pet.findById(req.params.id, function(err, pet) {
     if (err) return res.redirect('/');
-    res.render('show', {pet: pet, user:req.user, active:false});
+    res.render('show', {pet: pet, user: req.user, active: false});
   });
 }
 
 function edit(req, res) {
-  res.render('edit', {user:req.user, active:false});
+  Pet.findById(req.params.id, function(err, pet) {
+    if (err) return res.redirect('/');
+    res.render('edit', {user: req.user, pet: pet, active: false});
+  });
 }
 
 function update(req, res) {

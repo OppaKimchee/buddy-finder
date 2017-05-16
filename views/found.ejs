@@ -2,9 +2,35 @@
 <% include partials/_header %>
 <% include partials/_nav %>
 
-<h1>Show All Found Pets</h1>
+<div class="container">
+  <h1>Show all found pets</h1>
 
+  <div class="row">
+    <% pets.forEach(function(pet, index) { %>
+      <% if (pet.category === 'Found') { %>
+          <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+              <img src="<%= pet.picture %>" alt="<%= pet.name %>" class="img-thumbnail">
+              <div class="caption">
+                <b>Category</b>: <%= pet.category %><br>
+                <b>Type</b>: <%= pet.type %><br>
+                <b>Sex</b>: <%= pet.sex %><br>
+                <b>Size</b>: <%= pet.size %><br>
+                <b>Name</b>: <%= pet.name %><br>
+                <b>Breed</b>: <%= pet.breed %><br>
+                <b>Color</b>: <%= pet.color %><br>
+                <b>Age</b>: <%= pet.age %><br>
+                <b>Location</b>: <%= pet.location %><br>
+                <b>Description</b>: <%= pet.description %><br><br>
+                <a class="btn btn-default" href="/pets/<%= pet["_id"] %>" role="button">Show</a>
+                <a class="btn btn-default" href="/pets/<%= pet["_id"] %>/edit" role="button">Edit</a><br>
+              </div>
+            </div>
+          </div>
+      <% } %>
+    <% }) %>
+  </div>
 
-
+</div>
 
 <% include partials/_footer %>
