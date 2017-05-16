@@ -5,6 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+require('dotenv').config();
+require('./config/database');
+require('./config/passport');
+
+var cors = require('cors');
+var session = require('express-session');
+var methodOverride = require('method-override');
+var passport = require('passport');
+
 var pets = require('./routes/pets');
 var users = require('./routes/users');
 
@@ -16,11 +25,21 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
+// method override
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'WDIRocks!',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cors());
+app.use(methodOverride('_method'));
 
 app.use('/', pets);
 app.use('/users', users);
