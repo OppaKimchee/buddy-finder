@@ -69,9 +69,16 @@ function edit(req, res) {
 }
 
 function update(req, res) {
+  Pet.findByIdAndUpdate(req.params.id, req.body, function(err, pet) {
+    res.redirect('/pets/' + req.params.id)
+  });
 }
 
 function deletePet(req, res) {
+  Pet.findByIdAndRemove(req.params.id, function(err, pet) {
+    if (err) return res.redirect('/pets/' + req.params.id);
+    res.redirect('/');
+  });
 }
 
 
