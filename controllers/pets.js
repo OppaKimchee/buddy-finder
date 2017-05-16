@@ -4,9 +4,10 @@ const Pet = require('../models/pet');
 
 const pets = {
   index,
-  new: newPet,
+  new: submit,
   create,
-  all,
+  found,
+  lost,
   show,
   edit,
   update,
@@ -14,11 +15,12 @@ const pets = {
   };
 
 function index(req, res) {
-  res.render('index', {user:req.user});
+  res.render('index', {user:req.user, active:false});
 }
 
-function newPet(req, res) {
-  res.render('submit', {user:req.user});
+function submit(req, res) {
+  const active = 'submit'
+  res.render('submit', {user:req.user, active});
 }
 
 function create(req, res) {
@@ -33,17 +35,22 @@ function create(req, res) {
   })
 }
 
-function all(req, res) {
-  // const route = 'pets/all'
-  res.render('all', {user:req.user});
+function lost(req, res) {
+  const active = 'lost';
+  res.render('lost', {user:req.user, active});
+}
+
+function found(req, res) {
+  const active = 'found';
+  res.render('found', {user:req.user, active});
 }
 
 function show(req, res) {
-  res.render('show', {user:req.user});
+  res.render('show', {user:req.user, active:false});
 }
 
 function edit(req, res) {
-  res.render('edit', {user:req.user});
+  res.render('edit', {user:req.user, active:false});
 }
 
 function update(req, res) {
