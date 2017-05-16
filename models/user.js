@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// const petSchema = require('./pet');
 
 const userSchema = new Schema({
   category: String,
@@ -10,7 +9,6 @@ const userSchema = new Schema({
   area: String,
   facebookId: String,
   status: {type: String, enum: ['Lost', 'Found']},
-  // pets: [petSchema]
   pets: [{type: mongoose.Schema.Types.ObjectId, ref: 'Pet'}]
 });
 
