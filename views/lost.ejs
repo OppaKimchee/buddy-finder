@@ -2,9 +2,29 @@
 <% include partials/_header %>
 <% include partials/_nav %>
 
-    <h1>Show All Pets</h1>
+<div class="container">
+  <h1>Show all lost pets</h1>
 
+  <% pets.forEach(function(pet, index) { %>
+    <% if (pet.category === 'Lost') { %>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= pet.category %>
+          <%= pet.type %>
+          <%= pet.sex %>
+          <%= pet.size %>
+          <%= pet.name %>
+          <%= pet.breed %>
+          <%= pet.color %>
+          <%= pet.age %>
+          <%= pet.location %>
+          <%= pet.description %>
+          <%= pet.email %>
+          <%= pet.picture %>
+        </div>
+      </div>
+    <% } %>
+  <% }) %>
 
-
-
+</div>
 <% include partials/_footer %>

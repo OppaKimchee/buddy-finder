@@ -24,29 +24,41 @@ function submit(req, res) {
 }
 
 function create(req, res) {
-  console.log("CREATING THIS PETIZZLE", req.body);
   var pet = new Pet(req.body);
   pet.save(function(err) {
     if (err) {
       console.log('THERE WAS AN ERROR CREATING PET', err);
       return res.redirect('/pets/new');
     }
-    res.redirect('/');
+    req.user.pets.push(pet._id);
+    req.user.save(function(err) {
+      res.redirect('/');
+    })
   })
 }
 
 function lost(req, res) {
   const active = 'lost';
-  res.render('lost', {user:req.user, active});
+  Pet.find({}, function(err, pets) {
+    if (err) return res.redirect('/submit');
+    res.render('lost', {user:req.user, pets:pets, active});
+  });
 }
+
 
 function found(req, res) {
   const active = 'found';
-  res.render('found', {user:req.user, active});
+  Pet.find({}, function(err, pets) {
+    if (err) return res.redirect('/submit');
+    res.render('found', {user:req.user, pets:pets, active});
+  });
 }
 
 function show(req, res) {
-  res.render('show', {user:req.user, active:false});
+  Pet.findById(req.params.id, function(err, pet) {
+    if (err) return res.redirect('/');
+    res.render('show', {pet: pet, user:req.user, active:false});
+  });
 }
 
 function edit(req, res) {

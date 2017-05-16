@@ -44,10 +44,13 @@ passport.use(new FacebookStrategy({
 
 
 passport.serializeUser(function(user, cb) {
-  cb(null, user);
+  cb(null, user.id);
 });
 
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
+passport.deserializeUser(function(id, cb) {
+  User.findById(id)
+    .populate('pets').exec(function(err, user) {
+    cb(null, user);
+  });
 });
 
