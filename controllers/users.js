@@ -10,15 +10,15 @@ const users = {
   };
 
 function index(req, res) {
-  res.render('users', {user: req.user});
+  res.render('users', {user: req.user, active:false});
 }
 
 function login(req, res){
-  res.render('login', {user: req.user});
+  res.render('login', {user: req.user, active:false});
 }
 
 function profile(req, res){
-  res.render('profile', { user: req.user });
+  res.render('profile', {user: req.user, active:false});
 }
 
 function logout(req, res){

@@ -14,8 +14,11 @@ router.get('/pets/new', pets.new);
 // pet submission create
 router.post('/pets', pets.create);
 
-// show all pets
-router.get('/pets/all', pets.all);
+// show all lost pets
+router.get('/pets/lost', pets.lost);
+
+// show all found pets
+router.get('/pets/found', pets.found);
 
 // show one pet
 router.get('/pets/:id', pets.show);
