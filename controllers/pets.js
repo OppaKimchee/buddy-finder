@@ -23,6 +23,7 @@ function create(req, res) {
 }
 
 function all(req, res) {
+  // const route = 'pets/all'
   res.render('all', {user:req.user});
 }
 
