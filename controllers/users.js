@@ -1,7 +1,7 @@
 const User = require('../models/user');
 
 const users = {
-  // index
+
   };
 
 // function index(req, res) {
