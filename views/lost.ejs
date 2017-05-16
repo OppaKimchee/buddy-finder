@@ -5,26 +5,32 @@
 <div class="container">
   <h1>Show all lost pets</h1>
 
-  <% pets.forEach(function(pet, index) { %>
-    <% if (pet.category === 'Lost') { %>
-      <div class="row">
-        <div class="col-xs-6">
-          <%= pet.category %>
-          <%= pet.type %>
-          <%= pet.sex %>
-          <%= pet.size %>
-          <%= pet.name %>
-          <%= pet.breed %>
-          <%= pet.color %>
-          <%= pet.age %>
-          <%= pet.location %>
-          <%= pet.description %>
-          <%= pet.email %>
-          <%= pet.picture %>
-        </div>
-      </div>
-    <% } %>
-  <% }) %>
+  <div class="row">
+    <% pets.forEach(function(pet, index) { %>
+      <% if (pet.category === 'Lost') { %>
+          <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+              <img src="<%= pet.picture %>" alt="<%= pet.name %>" class="img-thumbnail">
+              <div class="caption">
+                <b>Category</b>: <%= pet.category %><br>
+                <b>Type</b>: <%= pet.type %><br>
+                <b>Sex</b>: <%= pet.sex %><br>
+                <b>Size</b>: <%= pet.size %><br>
+                <b>Name</b>: <%= pet.name %><br>
+                <b>Breed</b>: <%= pet.breed %><br>
+                <b>Color</b>: <%= pet.color %><br>
+                <b>Age</b>: <%= pet.age %><br>
+                <b>Location</b>: <%= pet.location %><br>
+                <b>Description</b>: <%= pet.description %><br>
+                <a class="btn btn-default" href="/pets/<%= pet["_id"] %>" role="button">Show</a>
+                <a class="btn btn-default" href="/pets/<%= pet["_id"] %>/edit" role="button">Edit</a><br>
+              </div>
+            </div>
+          </div>
+      <% } %>
+    <% }) %>
+  </div>
 
 </div>
+
 <% include partials/_footer %>
