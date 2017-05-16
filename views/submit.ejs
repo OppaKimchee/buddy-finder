@@ -1,1 +1,80 @@
-<h1>submit</h1>
+
+<% include partials/_header %>
+<% include partials/_nav %>
+
+<h1>Submit a lost/found buddy</h1>
+
+<form class="col s12" method="POST" action="/pets">
+  <div class="row">
+    <div class="form-group">
+      <div class="input-field col-xs-6">
+        <input name="category" class="form-control" placeholder="category" value="">
+      </div>
+      <div class="input-field col-xs-6">
+        <input name="name" class="form-control" placeholder="name" value="">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="input-field col-xs-6">
+        <input name="type" class="form-control" placeholder="type" value="">
+      </div>
+      <div class="input-field col-xs-6">
+        <input name="breed" class="form-control" placeholder="breed" value="">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="input-field col-xs-6">
+        <input name="sex" class="form-control" placeholder="sex" value="">
+      </div>
+      <div class="input-field col-xs-6">
+        <input name="color" class="form-control" placeholder="color" value="">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="input-field col-xs-6">
+        <input name="size" class="form-control" placeholder="size" value="">
+      </div>
+      <div class="input-field col-xs-6">
+        <input name="age" class="form-control" placeholder="age" value="">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="input-field col-xs-6">
+        <input name="location" class="form-control" placeholder="location" value="">
+      </div>
+      <div class="input-field col-xs-6">
+        <input name="picture" class="form-control" placeholder="picture" value="">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="input-field col-xs-6">
+        <input name="description" class="form-control" placeholder="description" value="">
+      </div>
+    </div>
+  </div>
+  <input class="btn waves-effect waves-light" type="submit" value="Submit">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include partials/_footer %>
