@@ -9,7 +9,8 @@ router.get('/', usersController.index);
 
 // router.get('/login', usersController.login);
 
-router.get('/login/facebook', passport.authenticate('facebook',{scope:'email'}));
+router.get('/login/facebook', passport.authenticate('facebook',{scope:'email',authType: 'reauthenticate',
+    authNonce: 'foo123' }));
 
 router.get('/auth/facebook/callback', passport.authenticate('facebook', {
   failureRedirect: '/users/login' }), function(req, res) {
