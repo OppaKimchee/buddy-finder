@@ -4,14 +4,16 @@
 
 <div class="container">
   <h3>EDIT:</h3>
-  <form method="POST" action="pets/<%= pet._id %>?_method=PUT">
+  <form method="POST" action="/pets/<%= pet._id %>?_method=PUT">
     <div class="row">
       <div class="col-xs-6">
         <label for="category">Category</label>
         <select class="form-control" name="category">
           <% if(pet.category === 'Lost') { %>
             <option selected>Lost</option>
+            <option>Found</option>
           <% } else { %>
+            <option>Lost</option>
             <option selected>Found</option>
           <% } %>
         </select>
@@ -21,7 +23,9 @@
         <select class="form-control" name="type">
           <% if(pet.type === 'Cat') { %>
             <option selected>Cat</option>
+            <option>Dog</option>
           <% } else { %>
+            <option>Cat</option>
             <option selected>Dog</option>
           <% } %>
         </select>
@@ -33,9 +37,15 @@
         <select class="form-control" name="sex">
           <% if(pet.sex === 'Female') { %>
             <option selected>Female</option>
+            <option>Male</option>
+            <option>N/A</option>
           <% } else if(pet.sex ==='Male') { %>
+            <option>Female</option>
             <option selected>Male</option>
+            <option>N/A</option>
           <% } else { %>
+            <option>Female</option>
+            <option>Male</option>
             <option selected>N/A</option>
           <% } %>
         </select>
@@ -45,11 +55,23 @@
         <select class="form-control" name="size">
           <% if(pet.size === 'Small') { %>
             <option selected>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+            <option>N/A</option>
           <% } else if(pet.size ==='Medium') { %>
+            <option>Small</option>
             <option selected>Medium</option>
+            <option>Large</option>
+            <option>N/A</option>
           <% } else if(pet.size === 'Large') { %>
+            <option>Small</option>
+            <option>Medium</option>
             <option selected>Large</option>
+            <option>N/A</option>
           <% } else { %>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
             <option selected>N/A</option>
           <% } %>
         </select>

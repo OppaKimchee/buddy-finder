@@ -9,13 +9,15 @@ const petSchema = new Schema({
   name: String,
   breed: String,
   color: String,
-  age: String,
-  location: {type: String, required: true},
+  street: {type: String, required: true},
+  city: {type: String, required: true},
+  state: {type: String, required: true},
   description: String,
+  contact: {type: String, required: true},
   picture: String
 },
 {
-  timestamp:true
+  timestamps:true
 });
 
 module.exports = mongoose.model('Pet', petSchema);

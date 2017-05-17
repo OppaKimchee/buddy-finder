@@ -1,6 +1,8 @@
 body, html {
-  padding: 10px;
-  font: 14px "Helvetica", Arial, sans-serif;
+  padding: 15px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
   height: 100%;
   margin: 0;
   background-color: white;
@@ -10,12 +12,36 @@ a {
   color: #00B7FF;
 }
 
-#map {
-  height: 80%;
+button {
+  font-family: 'Fjalla One', sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
 }
 
-.navbar-default {
+ h1, h3 {
+  margin-top: 0;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-weight: 400px;
+ }
+
+#map {
+  float: right;
+  height: 80%;
+  width: 60%;
+}
+
+.navbar {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  text-transform: uppercase;
   background-color: white;
   background-image: none;
   background-repeat: no-repeat;
  }
+
+ .navbar-text {
+  margin-top: 13px;
+ }
+
