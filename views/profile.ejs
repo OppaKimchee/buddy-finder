@@ -4,12 +4,25 @@
 <h1>Profile</h1>
 
 <p>
-ID: <%= user.id %><br/>
-Username: <%= user.username %><br/>
-Name: <%= user.displayName %><br/>
-<% if (user.emails) { %>
-Email: <%= user.emails[0].value %><br/>
+<!-- ID: <%= user.id %><br/> -->
+<!-- Username: <%= user.name %><br/> -->
+Name: <%= user.name %><br/>
+<% if (user.email) { %>
+	Email: <%= user.email %><br/>
 <% } %>
+<% if (!user.pets === false) { %>
+<%=user.pets%>
+	<% user.pets.forEach((pet)=>{%>
+		Pet Status: <%= pet.category %><br/>
+		Pet Name: <%= pet.name %><br/>
+		Pet Sex: <%= pet.sex %><br/>
+		Pet Size: <%= pet.size %><br/>
+		Pet Breed: <%= pet.breed %><br/>
+		Pet Color: <%= pet.color %><br/>
+		image: <img src="<%= pet.picture %>">
+	<% }) %>
+<% } %>
+
 </p>
 
 
