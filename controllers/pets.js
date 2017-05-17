@@ -48,6 +48,9 @@ function lost(req, res) {
     if (err) return res.redirect('/');
     res.render('lost', {user:req.user, pets:pets, active});
   });
+  console.log('CREATED AT', pets.createdAt);
+  console.log('UPDATED AT', pets.updatedAt);
+
 }
 
 

@@ -12,6 +12,8 @@
             <div class="thumbnail">
               <img src="<%= pet.picture %>" alt="<%= pet.name %>" class="img-thumbnail">
               <div class="caption">
+                <!-- <b>Created</b>: <%= pet.createdAt %><br> -->
+                <b>Updated</b>: <%= pet.updatedAt %><br>
                 <b>Category</b>: <%= pet.category %><br>
                 <b>Type</b>: <%= pet.type %><br>
                 <b>Sex</b>: <%= pet.sex %><br>
@@ -26,6 +28,7 @@
                 <a class="btn btn-default" href="/pets/<%= pet.id %>/edit" role="button">Edit</a>
                 <br><br>
                 <form action="/pets/<%= pet.id %>?_method=DELETE" method="POST">
+                <!-- <a class="btn btn-default" href="/pets/<%= pet.id %>?_method=DELETE" method="POST" role="button">Delete</a> -->
                   <button class="btn btn-default" type="submit">DELETE</button>
                 </form>
               </div>
