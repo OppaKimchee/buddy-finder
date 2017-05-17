@@ -25,10 +25,6 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-/*  background-color: rgba(100,80,80,0.5);
-  border-radius: 20px;
-  height: 100px;
-  width: 300px;*/
 }
 
 .parallax-box {
@@ -56,6 +52,11 @@ button, .btn-default {
   text-shadow: none;
   text-decoration: none;
   text-shadow: 0;
+  margin-top: 5px;
+}
+
+#button-delete {
+  display: inline-block;
 }
 
 .btn-default:hover {
@@ -79,12 +80,6 @@ h3 {
   font-weight: 400;
  }
 
-#map {
-  float: right;
-  height: 80%;
-  width: 100%;
-}
-
 .navbar {
   font-family: 'Oswald', sans-serif;
   font-weight: 300;
@@ -99,4 +94,12 @@ h3 {
   margin-top: 13px;
  }
 
+#map {
+  float: right;
+  height: 80%;
+  width: 100%;
+}
 
+.thumbnail > img {
+  height: 200px;
+}
