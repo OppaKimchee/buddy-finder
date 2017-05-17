@@ -8,6 +8,32 @@ body, html {
   background-color: white;
 }
 
+.parallax {
+  background-image: url("http://i.imgur.com/Me3h9hb.jpg");
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-text {
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(100,0,0,0.5);
+}
+
+.parallax-box {
+  height:500px;
+  background-color: white;
+  font-size:36px
+}
+
 a {
   text-transform: uppercase;
   color: #00B7FF;
@@ -36,10 +62,17 @@ button, .btn-default {
   font-weight: 400;
  }
 
+/*.overlay{
+  background: transparent;
+  position: relative;
+  width: 80%;
+  height: 100%;
+}*/
+
 #map {
   float: right;
   height: 80%;
-  width: 60%;
+  width: 80%;
 }
 
 .navbar {
