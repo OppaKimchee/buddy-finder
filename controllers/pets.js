@@ -1,5 +1,5 @@
-const User = require('../../models/user');
-const Pet = require('../../models/pet');
+const User = require('../models/user');
+const Pet = require('../models/pet');
 
 
 const pets = {
@@ -32,7 +32,12 @@ function create(req, res) {
     }
     req.user.pets.push(pet._id);
     req.user.save(function(err) {
-      res.redirect('/');
+      if(pet.category === 'Lost'){
+        res.redirect('/pets/lost');
+      }
+      else{
+        res.redirect('/pets/found');
+      }
     })
   })
 }

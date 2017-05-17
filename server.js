@@ -6,14 +6,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 require('dotenv').config();
 require('./config/database');
-require('./config/passport');
 
 var cors = require('cors');
 var session = require('express-session');
 var methodOverride = require('method-override');
 var passport = require('passport');
+require('./config/passport');
 
-var pets = require('./routes/api/pets');
+var express_geocoding_api = require('express-geocoding-api')
+
+var pets = require('./routes/pets');
+var petsApi = require('./routes/api/petsApi')
 var users = require('./routes/users');
 
 var app = express();
@@ -39,8 +42,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors());
 app.use(methodOverride('_method'));
+app.use(express_geocoding_api({
+  geocoder: {
+    provider: 'google'
+  }
+}));
 
-app.use(pets);
+app.use('/', pets);
+app.use('/api', petsApi);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

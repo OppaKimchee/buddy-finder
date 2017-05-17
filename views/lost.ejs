@@ -22,10 +22,10 @@
                 <b>Age</b>: <%= pet.age %><br>
                 <b>Location</b>: <%= pet.location %><br>
                 <b>Description</b>: <%= pet.description %><br>
-                <a class="btn btn-default" href="/api/pets/<%= pet.id %>" role="button">Show</a>
-                <a class="btn btn-default" href="/api/pets/<%= pet.id %>/edit" role="button">Edit</a>
+                <a class="btn btn-default" href="/pets/<%= pet.id %>" role="button">Show</a>
+                <a class="btn btn-default" href="/pets/<%= pet.id %>/edit" role="button">Edit</a>
                 <br><br>
-                <form action="/api/pets/<%= pet.id %>?_method=DELETE" method="POST">
+                <form action="/pets/<%= pet.id %>?_method=DELETE" method="POST">
                   <button class="btn btn-default" type="submit">DELETE</button>
                 </form>
               </div>
