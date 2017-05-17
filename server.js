@@ -13,7 +13,7 @@ var session = require('express-session');
 var methodOverride = require('method-override');
 var passport = require('passport');
 
-var pets = require('./routes/pets');
+var pets = require('./routes/api/pets');
 var users = require('./routes/users');
 
 var app = express();
@@ -40,7 +40,7 @@ app.use(passport.session());
 app.use(cors());
 app.use(methodOverride('_method'));
 
-app.use('/', pets);
+app.use(pets);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

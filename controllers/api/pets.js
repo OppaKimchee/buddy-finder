@@ -1,5 +1,5 @@
-const User = require('../models/user');
-const Pet = require('../models/pet');
+const User = require('../../models/user');
+const Pet = require('../../models/pet');
 
 
 const pets = {
