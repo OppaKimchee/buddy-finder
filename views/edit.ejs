@@ -4,20 +4,26 @@
 
 <div class="container">
   <h3>EDIT:</h3>
-  <form method="POST" action="/pets">
+  <form method="POST" action="api/pets/<%= pet._id %>?_method=PUT">
     <div class="row">
       <div class="col-xs-6">
         <label for="category">Category</label>
         <select class="form-control" name="category">
-          <option>Lost</option>
-          <option>Found</option>
+          <% if(pet.category === 'Lost') { %>
+            <option selected>Lost</option>
+          <% } else { %>
+            <option selected>Found</option>
+          <% } %>
         </select>
       </div>
       <div class="col-xs-6">
         <label for="type">Type</label>
         <select class="form-control" name="type">
-          <option>Cat</option>
-          <option>Dog</option>
+          <% if(pet.type === 'Cat') { %>
+            <option selected>Cat</option>
+          <% } else { %>
+            <option selected>Dog</option>
+          <% } %>
         </select>
       </div>
     </div><br>
@@ -25,56 +31,61 @@
       <div class="col-xs-6">
         <label for="sex">Sex</label>
         <select class="form-control" name="sex">
-          <option>Female</option>
-          <option>Male</option>
-          <option>N/A</option>
+          <% if(pet.sex === 'Female') { %>
+            <option selected>Female</option>
+          <% } else if(pet.sex ==='Male') { %>
+            <option selected>Male</option>
+          <% } else { %>
+            <option selected>N/A</option>
+          <% } %>
         </select>
       </div>
       <div class="col-xs-6">
         <label for="size">Size</label>
         <select class="form-control" name="size">
-          <option>Small</option>
-          <option>Medium</option>
-          <option>Large</option>
-          <option>N/A</option>
+          <% if(pet.size === 'Small') { %>
+            <option selected>Small</option>
+          <% } else if(pet.size ==='Medium') { %>
+            <option selected>Medium</option>
+          <% } else if(pet.size === 'Large') { %>
+            <option selected>Large</option>
+          <% } else { %>
+            <option selected>N/A</option>
+          <% } %>
         </select>
       </div>
     </div><br>
     <div class="row">
       <div class="col-xs-6">
         <label for="name">Name</label>
-        <input name="name" class="form-control" id="name" placeholder="Name of pet or N/A">
+        <input name="name" class="form-control" id="name" value="<%= pet.name %>">
       </div>
       <div class="col-xs-6">
         <label for="breed">Breed</label>
-        <input name="breed" class="form-control" id="breed" placeholder="Breed">
+        <input name="breed" class="form-control" id="breed" value="<%= pet.breed %>">
       </div>
     </div><br>
     <div class="row">
       <div class="col-xs-6">
         <label for="petColor">Color</label>
-        <input name="color" class="form-control" id="petColor" placeholder="Color">
+        <input name="color" class="form-control" id="petColor" value="<%= pet.color %>">
       </div>
       <div class="col-xs-6">
         <label for="age">Age</label>
-        <input name="age" class="form-control" id="age" placeholder="Age">
+        <input name="age" class="form-control" id="age" value="<%= pet.age %>">
       </div>
     </div><br>
     <div class="form-group">
       <label for="location">Location</label>
-      <input name="location" class="form-control" id="location" placeholder="Location lost/found">
+      <input name="location" class="form-control" id="location" value="<%= pet.location %>">
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea class="form-control" name="description" rows="2"></textarea>
+      <input name="description" class="form-control" id="description" value="<%= pet.description %>">
     </div>
-   <!--  <div class="form-group">
-       <label for="exampleInputEmail1">Email address</label>
-       <input name="email" class="form-control" id="exampleInputEmail1" placeholder="Email to contact">
-     </div> -->
    <div class="form-group">
       <label for="picture">Link to a picture</label>
-      <input name="picture" class="form-control" id="picture" placeholder="Link to image (Imgur.com)">
+      <input name="picture" class="form-control" id="picture" value="<%= pet.picture %>">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>

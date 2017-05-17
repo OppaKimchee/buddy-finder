@@ -7,10 +7,11 @@ passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
   clientSecret: process.env.FACEBOOK_APP_SECRET,
   callbackURL: process.env.FACEBOOK_CALLBACK,
-  profileFields: ['id','displayName', 'photos', 'email']
+  profileFields: ['id','displayName', 'photos', 'email'],
+  auth_type: "reauthenticate"
 },
   function(accessToken, refreshToken, profile, cb) {
-    console.log(JSON.stringify(profile,null,2))
+    // console.log(JSON.stringify(profile,null,2))
     // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
     //   return cb(err, user);
     // });

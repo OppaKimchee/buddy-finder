@@ -22,8 +22,10 @@ function profile(req, res){
 }
 
 function logout(req, res){
-  req.logout();
-  res.redirect('/');
+  req.session.destroy(function(err){
+    res.clearCookie('connect.sid');
+    res.redirect('/');
+  })
 }
 
 // function authenticate(req, res){
