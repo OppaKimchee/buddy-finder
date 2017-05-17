@@ -22,9 +22,14 @@
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 34.0522, lng: -118.2437},
-        zoom: 11,
+        zoom: 10,
+        scrollwheel:false,
         styles:[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
       });
+    }
+    var icons = {
+    	lost: "http://i.imgur.com/HNgeLkV.png",
+    	found: "http://i.imgur.com/TPO5AyY.png"
     }
 
     fetch('http://localhost:3000/api/pets/lost', {method: 'get'
@@ -39,17 +44,51 @@
 
           marker = new google.maps.Marker({
           position: new google.maps.LatLng(latitude, longitude),
-          map: map
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: elem.category === 'Lost'? icons.lost : icons.found
         });
 
+        var contentString =
+        	`<div id="content">
+            <h3 id="firstHeading" class="firstHeading">${elem.name}</h3>
+            <div id="bodyContent">
+							<p>
+								${elem.category}<br>
+								${elem.type}<br>
+								${elem.sex}<br>
+								${elem.size}<br>
+								${elem.breed}<br>
+								${elem.color}<br>
+								${elem.street}<br>
+								${elem.city}<br>
+								${elem.state}<br>
+								${elem.contact}<br>
+								${elem.description}<br>
+							</p>
+            	<img src="${elem.picture}">
+            	<a class="btn btn-default" href="/pets/${elem._id}" role="button">Show</a>
+            </div>
+          </div>`;
         let infowindow = new google.maps.InfoWindow();
 
         google.maps.event.addListener(marker, 'click', (function(marker) {
           return function() {
-            infowindow.setContent(elem["applicant"]);
+            infowindow.setContent(contentString);
             infowindow.open(map, marker);
           }
         })(marker));
+
+        marker.addListener('click', toggleBounce);
+        console.log(marker)
+        function toggleBounce() {
+          if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+          } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+          }
+        }
+
       }
     })
   });
