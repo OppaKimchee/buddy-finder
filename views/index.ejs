@@ -1,10 +1,54 @@
 
 <% include partials/_header %>
 <% include partials/_nav %>
-
+<!--
 <div class="container-fluid">
   <h2>FIND YOUR PET:<small> Track your lost and found pets via our BUDDY FINDER map</small></h2>
+ -->
+  <div id="map"></div>
 
+  <script>
+  // this view is sent to the browser and then the browser is going to run the script tag b/c the browser runs the html/script page.
+  // this is code not running on our server but running from our server.
+    let map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 34.0522, lng: -118.2437},
+        zoom: 11
+      });
+    }
+
+    apiData = fetch('https://data.sfgov.org/resource/6a9r-agq8.json', {method: 'get'
+    }).then(function(response) {
+      return response.json();
+    }).then(function(data) {
+      data.forEach(function(elem, index) {
+        if (index < 150) {
+          let longitude = elem["location"]["coordinates"][0],
+          latitude = elem["location"]["coordinates"][1];
+
+          marker = new google.maps.Marker({
+          position: new google.maps.LatLng(latitude, longitude),
+          map: map
+        });
+
+        let infowindow = new google.maps.InfoWindow();
+
+        google.maps.event.addListener(marker, 'click', (function(marker) {
+          return function() {
+            infowindow.setContent(elem["applicant"]);
+            infowindow.open(map, marker);
+          }
+        })(marker));
+      }
+    })
+  });
+
+  </script>
+
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfnS36x2Vwqg3SJmJe-rt53pHBtL_ygbM&callback=initMap" defer>
+  </script>
 
 
 </div>

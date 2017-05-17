@@ -1,9 +1,21 @@
-body {
+body, html {
   padding: 10px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Helvetica", Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  background-color: white;
 }
 
 a {
   color: #00B7FF;
 }
 
+#map {
+  height: 80%;
+}
+
+.navbar-default {
+  background-color: white;
+  background-image: none;
+  background-repeat: no-repeat;
+ }
