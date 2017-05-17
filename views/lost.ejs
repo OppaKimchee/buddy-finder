@@ -4,37 +4,13 @@
 
 <div class="container">
   <h3>Show all lost pets</h3>
-
   <div class="row">
     <% pets.forEach(function(pet, index) { %>
       <% if (pet.category === 'Lost') { %>
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-              <img src="<%= pet.picture %>" alt="<%= pet.name %>" class="img-thumbnail">
-              <div class="caption">
-                <b>Category</b>: <%= pet.category %> <%= pet.type %><br>
-                <b>Sex</b>: <%= pet.sex %><br>
-                <b>Size</b>: <%= pet.size %><br>
-                <b>Name</b>: <%= pet.name %><br>
-                <b>Breed</b>: <%= pet.breed %><br>
-                <b>Color</b>: <%= pet.color %><br>
-                <b>Street</b>: <%= pet.street %><br>
-                <b>City, State</b>: <%= pet.city %>, <%= pet.state %><br>
-                <b>Contact</b>: <%= pet.contact %><br>
-                <b>Description</b>: <%= pet.description %><br>
-                <a class="btn btn-default" href="/pets/<%= pet.id %>" role="button">Show</a>
-                <a class="btn btn-default" href="/pets/<%= pet.id %>/edit" role="button">Edit</a>
-                <br><br>
-                <form action="/pets/<%= pet.id %>?_method=DELETE" method="POST">
-                  <button class="btn btn-default" type="submit">DELETE</button>
-                </form>
-              </div>
-            </div>
-          </div>
-      <% } %>
+        <% include partials/_petdata %>
+      <%}%>
     <% }) %>
   </div>
-
 </div>
 
 <% include partials/_footer %>

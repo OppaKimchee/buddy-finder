@@ -3,30 +3,26 @@
 <% include partials/_nav %>
 
 <div class="container">
-  <h1>Pet info</h1>
+  <h3>Pet info</h3>
 
-  <div class="row">
-    <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="<%= pet.picture %>" alt="<%= pet.name %>" class="img-thumbnail">
-        <div class="caption">
-          <b>Category</b>: <%= pet.category %> <%= pet.type %><br>
-          <b>Sex</b>: <%= pet.sex %><br>
-          <b>Size</b>: <%= pet.size %><br>
-          <b>Name</b>: <%= pet.name %><br>
-          <b>Breed</b>: <%= pet.breed %><br>
-          <b>Color</b>: <%= pet.color %><br>
-          <b>Street</b>: <%= pet.street %><br>
-          <b>City</b>: <%= pet.city %><br>
-          <b>State</b>: <%= pet.state %><br>
-          <b>State</b>: <%= pet.contact %><br>
-          <b>Description</b>: <%= pet.description %><br><br>
-          <a class="btn btn-default" href="/pets/<%= pet.id %>/edit" role="button">Edit</a><br>
-        </div>
+  <div class="col-sm-4 col-md-4">
+    <div class="thumbnail">
+      <img src="<%= pet.picture %>" alt="<%= pet.name %>" class="img-thumbnail">
+      <div class="caption">
+        <h3><%= pet.category %> <%= pet.type %></h3>
+        <b>Details</b>: <%= pet.sex %>, <%= pet.size %>, <%= pet.breed %>, <%= pet.color %><br>
+        <b>Pet Name</b>: <%= pet.name %><br>
+        <b>Location</b>: <%= pet.street %><br>
+        <b>City, State</b>: <%= pet.city %>, <%= pet.state %><br>
+        <b>Contact</b>: <%= pet.contact %><br>
+        <b>Description</b>: <%= pet.description %><br>
+        <a class="btn btn-default" href="/pets/<%= pet.id %>/edit" role="button">Edit</a>
+        <form id="button-delete" action="/pets/<%= pet.id %>?_method=DELETE" method="POST">
+          <button class="btn btn-default" type="submit">DELETE</button>
+        </form>
       </div>
     </div>
   </div>
-
 </div>
 
 <% include partials/_footer %>
