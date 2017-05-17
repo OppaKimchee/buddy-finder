@@ -5,7 +5,7 @@
 <div class="parallax">
   <div class="parallax-text">
     <h1>BUDDY FINDER</h1>
-    <h3>Bringing family members together</h3>
+    <p>Bringing together family members together</p>
   </div>
 </div>
 
@@ -23,19 +23,19 @@
       map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 34.0522, lng: -118.2437},
         zoom: 11,
-        scrollwheel: false,
         styles:[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
       });
     }
 
-    apiData = fetch('https://data.sfgov.org/resource/6a9r-agq8.json', {method: 'get'
+    fetch('http://localhost:3000/api/pets/lost', {method: 'get'
     }).then(function(response) {
       return response.json();
     }).then(function(data) {
       data.forEach(function(elem, index) {
         if (index < 150) {
-          let longitude = elem["location"]["coordinates"][0],
-          latitude = elem["location"]["coordinates"][1];
+        	console.log(elem,index)
+          let longitude = elem.long,
+          latitude = elem.lat;
 
           marker = new google.maps.Marker({
           position: new google.maps.LatLng(latitude, longitude),
@@ -61,6 +61,16 @@
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 <% include partials/_footer %>
