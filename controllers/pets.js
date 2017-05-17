@@ -34,30 +34,30 @@ function submit(req, res) {
 function create(req, res) {
   var pet = new Pet(req.body);
   // console.log(req.body)
-  pet.save(function(err) {
-    if (err) {
-      console.log('THERE WAS AN ERROR CREATING PET', err);
-      return res.redirect('/pets/new');
-    }
-    req.user.pets.push(pet._id);
-    req.user.save(function(err) {
-      geocoder.geocode(req.body.street + req.body.city + req.body.state)
-        .then(function(res) {
-          pet.lat = res[0].latitude
-          pet.long = res[0].longitude
-          console.log(pet)
+  geocoder.geocode(req.body.street + req.body.city + req.body.state)
+    .then(function(geocode) {
+      pet.lat = geocode[0].latitude
+      pet.long = geocode[0].longitude
+      console.log(pet)
+      pet.save(function(err) {
+        if (err) {
+          console.log('THERE WAS AN ERROR CREATING PET', err);
+          return res.redirect('/pets/new');
+        }
+        req.user.pets.push(pet._id);
+        req.user.save(function(err) {
+          if(pet.category === 'Lost'){
+            res.redirect('/pets/lost');
+          }
+          else{
+            res.redirect('/pets/found');
+          }
         })
-        .catch(function(err) {
-          console.log(err);
-        });
-      if(pet.category === 'Lost'){
-        res.redirect('/pets/lost');
-      }
-      else{
-        res.redirect('/pets/found');
-      }
+      })
     })
-  })
+    .catch(function(err) {
+      console.log(err);
+    });
 }
 
 function lost(req, res) {
