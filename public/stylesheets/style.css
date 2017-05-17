@@ -21,17 +21,20 @@ body, html {
   text-align: center;
   text-transform: uppercase;
   position: absolute;
-  top: 50%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  background-color: rgba(100,0,0,0.5);
+/*  background-color: rgba(100,80,80,0.5);
+  border-radius: 20px;
+  height: 100px;
+  width: 300px;*/
 }
 
 .parallax-box {
   height:500px;
   background-color: white;
-  font-size:36px
+  font-size:36px;
 }
 
 a {
@@ -55,7 +58,21 @@ button, .btn-default {
   text-shadow: 0;
 }
 
- h1, h3 {
+.btn-default:hover {
+  background-color: #e6e6e6;
+  border-color: white;
+  color: white;
+}
+
+h1 {
+  margin-top: 0;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 90px;
+ }
+
+h3 {
   margin-top: 0;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
@@ -72,7 +89,7 @@ button, .btn-default {
 #map {
   float: right;
   height: 80%;
-  width: 80%;
+  width: 100%;
 }
 
 .navbar {
@@ -87,5 +104,9 @@ button, .btn-default {
 
  .navbar-text {
   margin-top: 13px;
+ }
+
+ .container {
+  padding-left: 10px;
  }
 
