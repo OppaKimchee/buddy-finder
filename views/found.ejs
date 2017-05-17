@@ -12,8 +12,8 @@
             <div class="thumbnail">
               <img src="<%= pet.picture %>" alt="<%= pet.name %>" class="img-thumbnail">
               <div class="caption">
-                <!-- <b>Created</b>: <%= pet.createdAt %><br> -->
-                <b>Updated</b>: <%= pet.updatedAt %><br>
+                <b>Posted on</b>: <%if(pet.createdAt){%><%= pet.createdAt.toDateString() %><%}%><br>
+                <b>Updated</b>: <%if(pet.updatedAt){%><%= pet.updatedAt.toDateString() %><%}%><br>
                 <b>Category</b>: <%= pet.category %><br>
                 <b>Type</b>: <%= pet.type %><br>
                 <b>Sex</b>: <%= pet.sex %><br>
