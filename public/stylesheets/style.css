@@ -95,9 +95,14 @@ h3 {
  }
 
 #map {
-  float: right;
   height: 80%;
   width: 100%;
+}
+
+#show-map {
+  float: right;
+  height: 100%;
+  width: 50%;
 }
 
 .map-div {
@@ -111,6 +116,18 @@ h3 {
 
 .thumbnail > img {
   height: 200px;
+}
+
+.show-div {
+  width: 800px;
+  border: gray .5px solid;
+  padding: 15px;
+}
+
+.show-image {
+  float: left;
+  padding: 5px;
+  width: 40%;
 }
 
 
