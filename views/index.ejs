@@ -25,8 +25,8 @@
       });
     }
     var icons = {
-    	lost: "http://i.imgur.com/HNgeLkV.png",
-    	found: "http://i.imgur.com/TPO5AyY.png"
+    	lost: "http://i.imgur.com/oZZ0HQr.gif",
+    	found: "http://i.imgur.com/JVNOMSN.gif"
     }
 
     fetch('http://localhost:3000/api/pets/lost', {method: 'get'
@@ -48,14 +48,19 @@
         var contentString =
           `<div class="thumbnail">
             <div class="caption">
+              <center>
+              <a class="btn btn-default" href="/pets/${elem._id}" role="button">Click for more info</a>
+              <br><br>
               <h3>${elem.category} ${elem.type}</h3>
-                <p>
-   								${elem.street}<br>
-  								${elem.city}, ${elem.state}<br>
-  								${elem.contact}<br>
-  							</p>
-              	<img src="${elem.picture}">
-              	<a class="btn btn-default" href="/pets/${elem._id}" role="button">Show</a>
+              <p>
+                ${elem.street}<br>
+                ${elem.city}, ${elem.state}<br>
+                ${elem.contact}<br>
+              </p>
+              <div class="map-div">
+                <img src="${elem.picture}" class="map-image"><br>
+              </center>
+              </div>
             </div>
           </div>`;
         let infowindow = new google.maps.InfoWindow();
