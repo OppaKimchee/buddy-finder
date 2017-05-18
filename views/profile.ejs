@@ -1,29 +1,34 @@
 <% include partials/_header %>
 <% include partials/_nav %>
 
-<h1>Profile</h1>
+<div class="container">
+	<h3>My Pets</h3>
 
-<p>
-<!-- ID: <%= user.id %><br/> -->
-<!-- Username: <%= user.name %><br/> -->
-Name: <%= user.name %><br/>
-<% if (user.email) { %>
-	Email: <%= user.email %><br/>
-<% } %>
-<% if (!user.pets === false) { %>
-<%=user.pets%>
-	<% user.pets.forEach((pet)=>{%>
-		Pet Status: <%= pet.category %><br/>
-		Pet Name: <%= pet.name %><br/>
-		Pet Sex: <%= pet.sex %><br/>
-		Pet Size: <%= pet.size %><br/>
-		Pet Breed: <%= pet.breed %><br/>
-		Pet Color: <%= pet.color %><br/>
-		image: <img src="<%= pet.picture %>">
-	<% }) %>
-<% } %>
+	Name: <%= user.name %><br/>
+	<% if (user.email) { %>
+		Email: <%= user.email %><br/>
+	<% } %>
 
-</p>
+	<% if (!user.pets === false) { %>
+		<% user.pets.forEach((pet)=>{%>
+			<div class="col-sm-4 col-md-4">
+					<div class="thumbnail">
+						<img src="<%= pet.picture %>">
+					</div>
+				<div class="caption">
+					Pet Status: <%= pet.category %><br/>
+					Pet Name: <%= pet.name %><br/>
+					Pet Sex: <%= pet.sex %><br/>
+					Pet Size: <%= pet.size %><br/>
+					Pet Breed: <%= pet.breed %><br/>
+					Pet Color: <%= pet.color %><br/>
+				</div>
+			</div>
+		<% }) %>
+	<% } %>
+</div>
+
+
 
 
 
