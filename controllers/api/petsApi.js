@@ -38,5 +38,5 @@ function show(req, res) {
     res.json(pet);
   });
 }
-//delete res.json({success:true})
+
 module.exports = petsApi
