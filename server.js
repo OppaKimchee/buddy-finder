@@ -13,7 +13,6 @@ var methodOverride = require('method-override');
 var passport = require('passport');
 require('./config/passport');
 var NodeGeocoder = require('node-geocoder');
-var express_geocoding_api = require('express-geocoding-api')
 
 var pets = require('./routes/pets');
 var petsApi = require('./routes/api/petsApi')
