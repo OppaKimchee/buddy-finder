@@ -41,11 +41,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors());
 app.use(methodOverride('_method'));
-app.use(express_geocoding_api({
-  geocoder: {
-    provider: 'google'
-  }
-}));
 
 app.use('/', pets);
 app.use('/api', petsApi);
