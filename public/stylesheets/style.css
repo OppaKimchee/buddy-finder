@@ -130,4 +130,6 @@ h3 {
   width: 40%;
 }
 
-
+.required{
+  color: red;
+}
