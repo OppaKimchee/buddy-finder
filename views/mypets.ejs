@@ -1,0 +1,43 @@
+<% include partials/_header %>
+<% include partials/_nav %>
+
+<div class="container">
+	<h3>My Pets</h3>
+
+	Name: <%= user.name %><br/>
+	<% if (user.email) { %>
+		Email: <%= user.email %><br/>
+	<% } %>
+
+	<% if (!user.pets === false) { %>
+		<% user.pets.forEach((pet)=>{%>
+			<div class="col-sm-4 col-md-4">
+					<div class="thumbnail">
+						<img src="<%= pet.picture %>">
+					</div>
+				<div class="caption">
+					Pet Status: <%= pet.category %><br>
+					Pet Name: <%= pet.name %><br>
+					Pet Sex: <%= pet.sex %><br>
+					Pet Size: <%= pet.size %><br>
+					Pet Breed: <%= pet.breed %><br>
+					Pet Color: <%= pet.color %><br>
+<!-- 	      <form id="button-delete" action="/pets/<%= pet.id %>/edit" method="GET">
+	        <button class="btn btn-default" type="submit">Edit</button>
+	      </form>
+	      <form id="button-delete" action="/pets/<%= pet.id %>?_method=DELETE" method="POST">
+	        <button class="btn btn-default" type="submit">DELETE</button>
+	      </form> -->
+				</div><br>
+			</div>
+		<% }) %>
+	<% } %>
+</div>
+
+
+
+
+
+<% include partials/_footer %>
+
+

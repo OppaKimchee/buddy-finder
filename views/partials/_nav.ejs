@@ -21,7 +21,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if(user) { %>
         <li><p class="navbar-text">Signed in as <%= user.name %></p><li>
-        <li><a href="/users/profile">Profile</a></li>
+        <li><a href="/users/mypets">My Pets</a></li>
         <a href="/users/logout"><button type="button" class="btn btn-default navbar-btn">Log Out</button></a>
         <% } else { %>
           <a href="/users/login/facebook"><button type="button" class="btn btn-default navbar-btn">Log In with Facebook</button></a>
