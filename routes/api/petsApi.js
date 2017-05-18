@@ -5,7 +5,7 @@ const petsApi = require('../../controllers/api/petsApi');
 // start from /
 
 // map
-router.get('/', petsApi.index);
+router.get('/pets', petsApi.index);
 
 // show all lost pets
 router.get('/pets/lost', petsApi.lost);
