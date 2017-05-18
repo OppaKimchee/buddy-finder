@@ -6,8 +6,8 @@ const petsApi = {
   index,
   found,
   lost,
-  show,
-  };
+  show
+};
 
 function index(req, res) {
   Pet.find({},function(err, pets){
@@ -16,8 +16,7 @@ function index(req, res) {
 }
 
 function lost(req, res) {
-  const active = 'lost';
-  Pet.find({}, function(err, pets) {
+  Pet.find({category: 'Lost'}, function(err, pets) {
     if (err) return res.redirect('/');
     res.json(pets);
   });
@@ -25,8 +24,7 @@ function lost(req, res) {
 
 
 function found(req, res) {
-  const active = 'found';
-  Pet.find({}, function(err, pets) {
+  Pet.find({category: 'Found'}, function(err, pets) {
     if (err) return res.redirect('/');
     res.json(pets);
   });
