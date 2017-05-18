@@ -25,4 +25,57 @@
   </div>
 </div>
 
+<div id="map"></div>
+  <script>
+  	let map;
+
+    var icons = {
+    	lost: "http://i.imgur.com/HNgeLkV.png",
+    	found: "http://i.imgur.com/TPO5AyY.png"
+    }
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: <%=pet.lat%>, lng: <%=pet.long%>},
+        zoom: 10,
+        scrollwheel: false,
+        styles:[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
+      });
+	    let marker = new google.maps.Marker({
+		    position: new google.maps.LatLng(<%=pet.lat%>, <%=pet.long%>),
+		    map: map,
+		    animation: google.maps.Animation.DROP,
+		    icon: '<%= pet.category %>' === 'Lost'? icons.lost : icons.found
+	  	});
+    let infowindow = new google.maps.InfoWindow();
+    google.maps.event.addListener(marker, 'click', (function(marker) {
+      return function() {
+        infowindow.setContent(contentString);
+        infowindow.open(map, marker);
+      }
+    })(marker));
+    }
+
+
+
+	  var contentString =
+	    `<div class="thumbnail">
+	      <div class="caption">
+	        <h3><%=pet.category%> <%=pet.type%></h3>
+	          <p>
+							<%=pet.street%><br>
+							<%=pet.city%>, <%=pet.state%><br>
+							<%=pet.contact%><br>
+						</p>
+	        	<img src="<%=pet.picture%>">
+	        	<a class="btn btn-default" href="/pets/<%=pet._id%>" role="button">Show</a>
+	      </div>
+	    </div>`;
+
+
+
+  </script>
+
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfnS36x2Vwqg3SJmJe-rt53pHBtL_ygbM&callback=initMap" defer></script>
+
 <% include partials/_footer %>
