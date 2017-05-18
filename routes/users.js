@@ -5,10 +5,6 @@ const Strategy = require('passport-facebook').Strategy;
 const usersController = require('../controllers/users');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
-router.get('/', usersController.index);
-
-// router.get('/login', usersController.login);
-
 router.get('/login/facebook', passport.authenticate('facebook',{scope:'email'}));
 
 router.get('/auth/facebook/callback', passport.authenticate('facebook', {
