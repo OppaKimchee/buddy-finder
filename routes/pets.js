@@ -23,7 +23,7 @@ router.get('/pets/found', pets.found);
 router.get('/pets/:id', pets.show);
 
 // edit one pet form
-router.get('/pets/:id/edit', isLoggedIn, pets.edit);
+router.get('/pets/:id/edit', pets.edit);
 
 // edit one update
 router.put('/pets/:id', isLoggedIn, pets.update);
