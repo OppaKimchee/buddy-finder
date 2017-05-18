@@ -8,8 +8,6 @@ var options = {
 
 var geocoder = NodeGeocoder(options);
 
-
-
 const pets = {
   index,
   mypets,
