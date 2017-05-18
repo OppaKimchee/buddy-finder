@@ -10,12 +10,14 @@
       <a class="btn btn-default" href="/pets/<%= pet.id %>" role="button">More Info</a>
 
 			<% if (user) { %>
+				<%if(user.pets.some(myPet => myPet._id.equals(pet.id))) { %>
 	      <form id="button-delete" action="/pets/<%= pet.id %>/edit" method="GET">
-	        <button class="btn btn-default" type="submit" <%= user.pets.some(myPet => myPet._id.equals(pet.id)) ? '' : "disabled" %> >Edit</button>
+	        <button class="btn btn-default" type="submit" >Edit</button>
 	      </form>
 	      <form id="button-delete" action="/pets/<%= pet.id %>?_method=DELETE" method="POST">
-	        <button class="btn btn-default" type="submit" <%= user.pets.some(myPet => myPet._id.equals(pet.id)) ? '' : "disabled" %>>DELETE</button>
+	        <button class="btn btn-default" type="submit">DELETE</button>
 	      </form>
+	      <% } %>
 			<% } %>
     </div>
   </div>
