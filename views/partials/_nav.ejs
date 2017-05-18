@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
         <li class="<%= active === 'lost' ? 'active' : '' %>"><a href="/pets/lost">Lost Pets <span class="sr-only">(current)</span></a></li>
         <li class="<%= active === 'found' ? 'active' : '' %>"><a href="/pets/found">Found Pets</a></li>
-        <li class="<%= active === 'submit' ? 'active' : '' %>"><a href="/pets/new">Submit</a></li>
+        <%if(user){%><li class="<%= active === 'submit' ? 'active' : '' %>"><a href="/pets/new">Submit</a></li><%}%>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if(user) { %>
