@@ -11,13 +11,19 @@
       <!-- <b>City, State</b>: <%= pet.city %>, <%= pet.state %><br> -->
       <!-- <b>Contact</b>: <%= pet.contact %><br> -->
       <!-- <b>Description</b>: <%= pet.description %><br> -->
+      <b>Posted on</b>: <%= pet.createdAt.toDateString() %><br>
       <b>Updated</b>: <%= pet.updatedAt.toDateString() %><br>
-      <b>Created at</b>: <%= pet.createdAt.toDateString() %><br>
       <a class="btn btn-default" href="/pets/<%= pet.id %>" role="button">More Info</a>
-      <a class="btn btn-default" href="/pets/<%= pet.id %>/edit" role="button">Edit</a>
-      <form id="button-delete" action="/pets/<%= pet.id %>?_method=DELETE" method="POST">
-        <button class="btn btn-default" type="submit">DELETE</button>
-      </form>
+
+			<% if (user) { %>
+	      <form id="button-delete" action="/pets/<%= pet.id %>/edit" method="GET">
+	        <button class="btn btn-default" type="submit"
+	        <%= user.pets.some(myPet => myPet._id.equals(pet.id)) ? '' : "disabled" %> >Edit</button>
+	      </form>
+	      <form id="button-delete" action="/pets/<%= pet.id %>?_method=DELETE" method="POST">
+	        <button class="btn btn-default" type="submit" <%= user.pets.some(myPet => myPet._id.equals(pet.id)) ? '' : "disabled" %>>DELETE</button>
+	      </form>
+			<% } %>
     </div>
   </div>
 </div>

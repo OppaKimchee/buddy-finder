@@ -80,7 +80,7 @@ function found(req, res) {
 function show(req, res) {
   Pet.findById(req.params.id, function(err, pet) {
     if (err) return res.redirect('/');
-    res.render('show', {pet: pet, user: req.user, active: false});
+    res.render('show', {user: req.user, pet:pet, active: false});
   });
 }
 
@@ -108,8 +108,5 @@ function deletePet(req, res) {
     }
   });
 }
-
-
-
 
 module.exports = pets

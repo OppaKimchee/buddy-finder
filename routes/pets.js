@@ -11,7 +11,7 @@ router.get('/', pets.index);
 router.get('/pets/new', pets.new);
 
 // pet submission create
-router.post('/pets', pets.create);
+router.post('/pets', isLoggedIn, pets.create);
 
 // show all lost pets
 router.get('/pets/lost', pets.lost);
@@ -23,12 +23,17 @@ router.get('/pets/found', pets.found);
 router.get('/pets/:id', pets.show);
 
 // edit one pet form
-router.get('/pets/:id/edit', pets.edit);
+router.get('/pets/:id/edit', isLoggedIn, pets.edit);
 
 // edit one update
-router.put('/pets/:id', pets.update);
+router.put('/pets/:id', isLoggedIn, pets.update);
 
 // delete pet
-router.delete('/pets/:id', pets.delete);
+router.delete('/pets/:id', isLoggedIn, pets.delete);
+
+function isLoggedIn(req, res, next) {
+  if ( req.isAuthenticated() ) return next();
+  res.redirect('/');
+}
 
 module.exports = router;
