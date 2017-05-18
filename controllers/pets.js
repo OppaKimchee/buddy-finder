@@ -10,6 +10,7 @@ var geocoder = NodeGeocoder(options);
 
 const pets = {
   index,
+  about,
   mypets,
   new: submit,
   create,
@@ -23,6 +24,11 @@ const pets = {
 
 function index(req, res) {
   res.render('index', {user:req.user, active:false});
+}
+
+function about(req, res) {
+  const active = 'about'
+  res.render('about', {user:req.user, active});
 }
 
 function mypets(req, res) {

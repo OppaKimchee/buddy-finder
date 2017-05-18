@@ -7,6 +7,9 @@ const pets = require('../controllers/pets');
 // map
 router.get('/', pets.index);
 
+// about
+router.get('/pets/about', pets.about);
+
 // pet submission form
 router.get('/pets/new', pets.new);
 
