@@ -30,7 +30,7 @@ body, html {
 .parallax-box {
   height:500px;
   background-color: white;
-  font-size:36px;
+  font-size: 36px;
 }
 
 a {
@@ -94,6 +94,10 @@ h3 {
   margin-top: 13px;
  }
 
+.required{
+  color: red;
+}
+
 #map {
   height: 80%;
   width: 100%;
@@ -124,8 +128,57 @@ h3 {
   padding: 15px;
 }
 
-.show-image {
+.show-desc {
   float: left;
-  padding: 5px;
-  width: 40%;
 }
+
+.parallax-show-container {
+  background-image: url("https://images.pexels.com/photos/139922/pexels-photo-139922.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+  height: 150px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-show-container-text {
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.parallax-show-box {
+  height: 400px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.parallax-desc {
+  padding: 5px;
+  position: relative;
+  height: 400px;
+  margin-top: 45px;
+  margin-left: 60px;
+}
+
+.parallax-show-image-div {
+  padding: 5px;
+}
+
+.parallax-show-image {
+  height: 350px;
+}
+
+.parallax-map-box {
+  height: 550px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+
