@@ -12,7 +12,7 @@ router.get('/auth/facebook/callback', passport.authenticate('facebook', {
     res.redirect('/');
 });
 
-router.get('/profile', ensureLoggedIn('/users/login'), usersController.profile);
+router.get('/mypets', ensureLoggedIn('/users/login'), usersController.mypets);
 
 router.get('/logout', usersController.logout);
 
