@@ -8,9 +8,9 @@ const users = {
   };
 
 function mypets(req, res){
-  Pet.find({}, function(err, pets) {
+  Pet.find({}, function(err, pet) {
     if (err) return res.redirect('/');
-    res.render('mypets', {user: req.user, pets:pets, active:false});
+    res.render('mypets', {user: req.user, pet: pet, active:false});
   }
 )}
 
