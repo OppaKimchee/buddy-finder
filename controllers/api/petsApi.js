@@ -1,7 +1,6 @@
 const User = require('../../models/user');
 const Pet = require('../../models/pet');
 
-
 const petsApi = {
   index,
   found,

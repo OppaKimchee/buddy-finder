@@ -11,10 +11,6 @@ passport.use(new FacebookStrategy({
   auth_type: "reauthenticate"
 },
   function(accessToken, refreshToken, profile, cb) {
-    // console.log(JSON.stringify(profile,null,2))
-    // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-    //   return cb(err, user);
-    // });
     User.findOne({'facebookId': profile.id}, function(err, user){
       if(err) return cb(err);
       if(user) {
@@ -25,7 +21,6 @@ passport.use(new FacebookStrategy({
           name: profile.displayName,
           email: profile.emails[0].value,
           facebookId: profile.id,
-          // avatar: profile.photos
         });
         newUser.save(function(err){
           if(err) return cb(err);
@@ -35,12 +30,6 @@ passport.use(new FacebookStrategy({
     })
   }
 ));
-
-
-// FB.getLoginStatus(function(response) {
-//     statusChangeCallback(response);
-// });
-
 
 passport.serializeUser(function(user, cb) {
   cb(null, user.id);
