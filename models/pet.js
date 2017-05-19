@@ -14,7 +14,7 @@ const petSchema = new Schema({
   state: {type: String, required: true},
   description: String,
   contact: {type: String, required: true},
-  picture: String,
+  picture: {type: String, required: true},
   lat: Number,
   long: Number
 },
