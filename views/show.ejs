@@ -97,19 +97,23 @@
 	}
 
 	var contentString =
-	`<div class="thumbnail">
-	<div class="caption">
-		<h3><%=pet.category%> <%=pet.type%></h3>
-		<p>
-			<%=pet.street%><br>
-			<%=pet.city%>, <%=pet.state%><br>
-			<%=pet.contact%><br>
-		</p>
-		<img src="<%=pet.picture%>">
-		<a class="btn btn-default" href="/pets/<%=pet._id%>" role="button">Show</a>
-	</div>
-</div>`;
-
+  `<div class="thumbnail">
+    <div class="caption">
+      <center>
+      <a class="btn btn-default" href="/pets/<%=pet._id%>" role="button">Click for more info</a>
+      <br><br>
+      <h3><%=pet.category%> <%=pet.type%></h3>
+      <p>
+        <%=pet.street%><br>
+        <%=pet.city%>, <%=pet.state%><br>
+        <%=pet.contact%> <br>
+      </p>
+      <div class="map-div">
+        <img src="<%=pet.picture%>" class="map-image"><br>
+      </center>
+      </div>
+    </div>
+  </div>`;
 
 </script>
 
