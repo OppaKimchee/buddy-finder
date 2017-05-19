@@ -97,16 +97,16 @@
         <input name="street" class="form-control" id="street" value="<%= pet.street %>">
       </div>
       <div class="col-xs-4">
-        <label for="city">City</label>
+        <label for="city">City <span class="required">(required)</span></label>
         <input name="city" class="form-control" id="city" value="<%= pet.city %>">
       </div>
       <div class="col-xs-4">
-        <label for="state">State</label>
+        <label for="state">State <span class="required">(required)</span></label>
         <input name="state" class="form-control" id="state" value="<%= pet.state %>">
       </div>
     </div><br>
     <div class="form-group">
-     <label for="contact">Contact</label>
+     <label for="contact">Contact <span class="required">(required)</span></label>
      <input name="contact" class="form-control" id="contact" value="<%= pet.contact%>">
     </div>
     <div class="form-group">
@@ -114,7 +114,7 @@
       <input name="description" class="form-control" id="description" value="<%= pet.description %>">
     </div>
    <div class="form-group">
-      <label for="picture">Link to a picture</label>
+      <label for="picture">Link to a picture <span class="required">(required)</span></label>
       <input name="picture" class="form-control" id="picture" value="<%= pet.picture %>">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
