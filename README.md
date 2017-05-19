@@ -6,6 +6,16 @@ Formerly known as Furry Finder, Buddy Finder was created to serve one purpose an
 We're making the world a happier place one step at a time by reuniting furry loved ones with their not so furry families.
 
 ![index screen](http://i.imgur.com/xDwwngc.png)
+
+## API Endpoints 
+
+	All Pets: findmybuddy.herokuapp.com/api/pets
+
+	Lost Pets: findmybuddy.herokuapp.com/api/pets/lost
+
+	Found Pets: findmybuddy.herokuapp.com/api/pets/found
+	
+	Show One Pet: findmybuddy.herokuapp.com/api/pets/:id
    
 ## Technologies Used
 1. It was a rough ride, but our new friends Node & Express.
