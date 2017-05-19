@@ -42,12 +42,10 @@ function submit(req, res) {
 
 function create(req, res) {
   var pet = new Pet(req.body);
-  // console.log(req.body)
   geocoder.geocode(req.body.street + req.body.city + req.body.state)
     .then(function(geocode) {
       pet.lat = geocode[0].latitude
       pet.long = geocode[0].longitude
-      console.log(pet)
       pet.save(function(err) {
         if (err) {
           console.log('THERE WAS AN ERROR CREATING PET', err);
