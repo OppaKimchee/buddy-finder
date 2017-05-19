@@ -3,7 +3,8 @@ const Pet = require('../models/pet');
 var NodeGeocoder = require('node-geocoder');
 
 var options = {
-  provider: 'google'
+  provider: 'google',
+  apiKey: process.env.GOOGLE_GEO
 };
 
 var geocoder = NodeGeocoder(options);
