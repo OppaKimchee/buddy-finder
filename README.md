@@ -27,13 +27,14 @@ We're making the world a happier place one step at a time by reuniting furry lov
 7. Pexels for the furry images
 
 ## Challenges
-1. 2 member team 
-2. Anger 
-3. Rage
-4. Sadness
-5. Brain not functioning
-6. Github X10000
-7. Heroku X100
+1. Brain not functioning
+2. Github X10000
+3. Heroku X100
+
+## Ice Box
+1. Search feature
+2. Adoptable/Fosterable pet data
+3. Chat room
 
 ## Getting Started 
 Find your furry buddy here [NOW](http://findmybuddy.herokuapp.com/).  
