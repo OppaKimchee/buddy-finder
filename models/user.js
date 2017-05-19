@@ -8,5 +8,4 @@ const userSchema = new Schema({
   pets: [{type: mongoose.Schema.Types.ObjectId, ref: 'Pet'}]
 });
 
-
 module.exports = mongoose.model('User', userSchema);
